@@ -1,6 +1,5 @@
 #pragma once
 
-
 struct node
 {
     int data;
@@ -19,7 +18,12 @@ public:
 
     void insert_beginning(int value);
     void insert_end(int value);
-    void insert_at(int value, int index);
+    void insert_at(unsigned int value, int index);
+
+    void delete_beginning();
+    void delete_end();
+    void delete_at(unsigned int index);
+    void delete_value(int value);
     
     void print(linked_list& list);
 };
