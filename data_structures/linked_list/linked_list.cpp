@@ -216,9 +216,9 @@ unsigned int linked_list::get_size()
     return counter;
 }
 
-void linked_list::print(linked_list& list)
+void linked_list::print()
 {
-    node* current = list.head;
+    node* current = head;
     while (current)
     {
         int value = current->data;

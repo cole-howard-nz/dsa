@@ -31,5 +31,5 @@ public:
     void update_value(int value, int new_value);
     
     unsigned int get_size();
-    void print(linked_list& list);
+    void print();
 };
