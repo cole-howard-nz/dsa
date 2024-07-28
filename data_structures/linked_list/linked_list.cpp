@@ -38,7 +38,7 @@ void linked_list::insert_end(int value)
     current->next = new_node;
 }
 
-void linked_list::insert_at(unsigned int index, int value)
+void linked_list::insert_at(int value, unsigned int index)
 {
     node* new_node = new node(value);
     if (index == 0)
@@ -99,6 +99,7 @@ void linked_list::delete_at(unsigned int index)
     }
 
     node* current = head;
+    // iterate until node before index
     for (unsigned int i = 0; current != nullptr && i < index-1; i++)
     {
         current = current->next;
@@ -134,6 +135,85 @@ void linked_list::delete_value(int value)
         current->next = current->next->next;
         delete node_to_delete;
     }
+}
+
+void linked_list::update_beginning(int value)
+{
+    head->data = value;
+}
+
+void linked_list::update_end(int value)
+{
+    if (head->next == nullptr)
+    {
+        update_beginning(value);
+        return;
+    }
+
+    node* current = head;
+    while (current->next && current->next->next)
+    {
+        current = current->next;
+    }
+    
+    current->next->data = value;
+}
+
+void linked_list::update_at(unsigned int index, int value)
+{
+    if (index == 0)
+    {
+        update_beginning(value);
+        return;
+    }
+
+    node* current = head;
+    //iterate until one index before our target
+    for (unsigned int i = 0; current->next != nullptr && i < index - 1; i++)
+    {
+        current = current->next;
+    }
+
+    current->next->data = value;
+}
+
+void linked_list::update_value(int value, int new_value)
+{
+    if (head->data == value)
+    {
+        update_beginning(new_value);
+        return;
+    }
+
+    node* current = head;
+    while (current->next != nullptr && current->next->data != value)
+    {
+        current = current->next;
+    }
+
+    if (current->next)
+    {
+        current->next->data = new_value;
+    }
+    
+}
+
+unsigned int linked_list::get_size()
+{
+    unsigned int counter = 0;
+    if (!head)
+    {
+        return counter;
+    }
+
+    node* current = head;
+    counter++;
+    while (current->next)
+    {
+        current = current->next;
+        counter++;
+    }
+    return counter;
 }
 
 void linked_list::print(linked_list& list)
