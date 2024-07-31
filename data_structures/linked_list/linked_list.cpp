@@ -127,8 +127,6 @@ void linked_list::delete_value(int value)
         current = current->next;
     }
 
-    //std::cout << "debug: " << current->data << " " << current->next << std::endl;
-
     if (current->next != nullptr)
     {
         node* node_to_delete = current->next;
