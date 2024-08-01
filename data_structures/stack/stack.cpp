@@ -26,11 +26,6 @@ stack::~stack()
     delete[] array;
 }
 
-const std::unordered_map<int, unsigned int> stack::get_map()
-{
-    return stack_map;
-}
-
 void stack::push(int value)
 {
     if (top_index == capacity)
@@ -39,7 +34,6 @@ void stack::push(int value)
     }
 
     array[top_index] = value;
-    stack_map[top_index] = value;
     top_index++;
 }
 
@@ -51,7 +45,6 @@ int stack::pop()
         return -1;
     }
     int value = array[top_index];
-    stack_map.erase(value);
     top_index--;
 
     // Resizing logic if full of empties.
@@ -85,9 +78,27 @@ void stack::clear()
     resize_stack(2);
 }
 
-int find(int value)
+int stack::find(int value)
 {
-    return stack::get_map();
+    for (unsigned int i = 0; i < capacity; i++)
+    {
+        if (array[i] == value)
+            return i;
+    }
+    return -1;
+}
+
+int stack::value_at(int index)
+{
+    // scuffed as, i tried to free the memory but had issues.
+    // if a stack is large and then is "cleared" the values
+    // higher in the stack (which are now 'removed') still
+    // exist in memory.
+
+    // this check just stops us from accessing it lol
+    if (array[index] && index <= top_index - 1)
+        return array[index];
+    return -1;
 }
 
 void stack::print()

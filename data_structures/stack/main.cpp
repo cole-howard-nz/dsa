@@ -26,5 +26,11 @@ int main()
     s->print();
     s->push(50);
     s->print();
+    s->push(1);
+    s->push(5);
+    s->push(15);
+    s->push(35);
+    s->print();
+    std::cout << s->value_at(5) << std::endl;
     return 0;
 }
