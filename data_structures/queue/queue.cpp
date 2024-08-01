@@ -64,8 +64,12 @@ int queue::peek_rear()
 bool queue::is_empty()
 {
     if (front_node == nullptr)
-        std::cout << "Queue is empty." << std::endl;
-    return (front_node == nullptr);
+    {
+        std::cout << "Queue is empty" << std::endl;
+        return 1;
+    }
+    std::cout << "Queue has elements" << std::endl;
+    return 0;
 }
 
 unsigned int queue::get_size()
@@ -93,4 +97,7 @@ void queue::print()
     }
     std::cout << std::endl;
 
+    std::cout << "Size of queue: " << get_size() << std::endl;
+    std::cout << "Front of queue: " << peek_front() << std::endl;
+    std::cout << "Rear of queue: " << peek_rear() << std::endl;
 }
