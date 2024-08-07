@@ -14,11 +14,6 @@ int main()
     std::cout << s->peek() << std::endl;
     s->push(69);
     s->push(69);
-    s->push(69);
-    s->push(69);
-    s->push(69);
-    s->push(69);
-    s->push(69);
     std::cout << s->peek() << std::endl;
     s->print();
     std::cout << s->get_size() << std::endl;
@@ -32,5 +27,6 @@ int main()
     s->push(35);
     s->print();
     std::cout << s->value_at(5) << std::endl;
+    std::cout << s->value_at(4) << std::endl;
     return 0;
 }

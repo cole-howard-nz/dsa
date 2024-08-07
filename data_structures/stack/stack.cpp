@@ -1,6 +1,6 @@
 #include "stack.h"
 #include <iostream>
-#include <unordered_map>
+
 
 void stack::resize_stack(unsigned int capacity)
 {
