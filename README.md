@@ -9,3 +9,4 @@ Data Structures:
 Sorting Algorithms:
   * insertion_sort
   * selection_sort
+  * quick_sort, recursive
